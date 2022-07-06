@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { LoanSlider } from './LoanSlider';
+import { MonthSlider } from './MonthSlider';
 
-function App() {
+export const App = () => {
+  const [inputValueLoan, setInputValueLoan] = useState(1000);
+  const [inputValueMonth, setInputValueMonth] = useState(0);
+
+  const MY_KEY = process.env.REACT_APP_API_KEY;
+
+  const fetchQuotes = async () => {
+    const config = {
+      headers: {
+        'X-Api-Key': MY_KEY,
+      },
+      contentType: 'application/json',
+    };
+    const res = await axios.get(
+      `https://api.api-ninjas.com/v1/mortgagecalculator?loan_amount=200000&interest_rate=3.5&duration_years=30`,
+      config,
+    );
+    return res.data;
+  };
+
+  fetchQuotes();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <LoanSlider
+        inputValueLoan={inputValueLoan}
+        setInputValueLoan={setInputValueLoan}
+      />
+      <MonthSlider
+        inputValueMonth={inputValueMonth}
+        setInputValueMonth={setInputValueMonth}
+      />
+    </>
   );
-}
-
-export default App;
+};
