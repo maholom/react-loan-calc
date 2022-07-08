@@ -27,7 +27,7 @@ export const App = () => {
         setData(response.data.monthly_payment.mortgage);
       })
       .catch((err) => {
-        console.error('There is an error occured.', err);
+        console.log('There is an error occured.', err);
       });
   };
 
