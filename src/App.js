@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { LoanSlider } from './LoanSlider';
-import { MonthSlider } from './MonthSlider';
-import { CheckboxInsurance } from './Checkbox';
+import { LoanSlider } from './components/LoanSlider';
+import { MonthSlider } from './components/MonthSlider';
+import { CheckboxInsurance } from './components/Checkbox';
 
 export const App = () => {
   const [inputValueLoan, setInputValueLoan] = useState(1000);
