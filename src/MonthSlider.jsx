@@ -26,7 +26,7 @@ export const MonthSlider = ({ inputValueMonth, setInputValueMonth }) => {
       <Col span={12}>
         <Slider
           min={0}
-          max={36}
+          max={30}
           onChange={debouncedChangeHandler}
           value={typeof inputValueMonth === 'number' ? inputValueMonth : 0}
           step={1}
@@ -42,7 +42,7 @@ export const MonthSlider = ({ inputValueMonth, setInputValueMonth }) => {
           step={1}
           value={inputValueMonth}
           onChange={debouncedChangeHandler}
-          addonAfter="Měsíců"
+          addonAfter="Roků"
         />
       </Col>
     </Row>
