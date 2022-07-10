@@ -3,11 +3,11 @@ import axios from 'axios';
 
 const MY_KEY = process.env.REACT_APP_API_KEY;
 
-const useFetchData = (inputValueLoan, inputValueMonth) => {
+export const useAxios = (inputValueLoan, inputValueMonth) => {
+  const baseURL = `https://api.api-ninjas.com/v1/mortgagecalculator?loan_amount=${inputValueLoan}&interest_rate=3.5&duration_years=${inputValueMonth}`;
+
   const [data, setData] = useState('');
   const [loading, setLoading] = useState(false);
-
-  const baseURL = `https://api.api-ninjas.com/v1/mortgagecalculator?loan_amount=${inputValueLoan}&interest_rate=3.5&duration_years=${inputValueMonth}`;
 
   const config = {
     headers: {
@@ -16,18 +16,20 @@ const useFetchData = (inputValueLoan, inputValueMonth) => {
     contentType: 'application/json',
   };
 
-  axios.get(baseURL, config);
-  setLoading(true)
-    .then((response) => {
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(baseURL, config);
       setData(response.data.monthly_payment.mortgage);
-    })
-    .catch((err) => {
+    } catch (err) {
       console.log('There is an error occured.', err);
-    })
-    .finaly(setLoading(false));
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    fetchData(inputValueLoan, inputValueMonth);
+    fetchData();
   }, [inputValueLoan, inputValueMonth]);
 
   return { data, loading };

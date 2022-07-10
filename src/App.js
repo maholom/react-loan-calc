@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { LoanSlider } from './components/LoanSlider';
 import { MonthSlider } from './components/MonthSlider';
 import { CheckboxInsurance } from './components/CheckboxInsurance';
-import { useFetchData } from './hooks/useFetchData';
+import { useAxios } from './hooks/useAxios';
 
 export const App = () => {
   const [inputValueLoan, setInputValueLoan] = useState(1000);
   const [inputValueMonth, setInputValueMonth] = useState(0);
   const [checked, setChecked] = useState(false);
 
-  const { data, loading } = useFetchData();
+  const { data } = useAxios(inputValueLoan, inputValueMonth);
   return (
     <div>
       <div>{inputValueLoan}</div>
