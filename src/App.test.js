@@ -17,7 +17,7 @@ test(
 
     fireEvent.click(screen.getByRole('checkbox'));
 
-    expect(screen.getByText(/S po/i)).toBeInTheDocument();
+    expect(screen.getByText(/S pojištěním/i)).toBeInTheDocument();
 
     // expect(screen.getByText(/ahoj/i)).toBeInTheDocument();
     // expect(screen.toHaveTextContent(/S pojištěním/i));

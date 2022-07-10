@@ -36,9 +36,6 @@ export const LoanSlider = ({ inputValueLoan, setInputValueLoan }) => {
         <InputNumber
           min={1000}
           max={100000}
-          style={{
-            margin: '0 16px',
-          }}
           value={inputValueLoan}
           onChange={debouncedChangeHandler}
           step={1000}

@@ -25,24 +25,21 @@ export const MonthSlider = ({ inputValueMonth, setInputValueMonth }) => {
     <Row>
       <Col span={12}>
         <Slider
-          min={0}
+          min={1}
           max={30}
           onChange={debouncedChangeHandler}
-          value={typeof inputValueMonth === 'number' ? inputValueMonth : 0}
+          value={typeof inputValueMonth === 'number' ? inputValueMonth : 1}
           step={1}
         />
       </Col>
       <Col span={4}>
         <InputNumber
-          min={0}
+          min={1}
           max={36}
-          style={{
-            margin: '0 16px',
-          }}
           step={1}
           value={inputValueMonth}
           onChange={debouncedChangeHandler}
-          addonAfter="Let"
+          addonAfter="Počet roků"
         />
       </Col>
     </Row>
