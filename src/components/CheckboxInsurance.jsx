@@ -2,9 +2,11 @@ import React from 'react';
 import { Checkbox } from 'antd';
 
 export const CheckboxInsurance = ({ checked, setChecked }) => {
-  const onChange = (e) => {
-    setChecked(e.target.checked);
+  const onChange = () => {
+    setChecked(!checked);
   };
+
+  const label = `${checked ? 'S pojištěním' : 'Bez pojištění'}`;
 
   return (
     <>
@@ -13,7 +15,9 @@ export const CheckboxInsurance = ({ checked, setChecked }) => {
           marginBottom: '20px',
         }}
       >
-        <Checkbox checked={checked} onChange={onChange}></Checkbox>
+        <Checkbox data-testid="checkbox" checked={checked} onChange={onChange}>
+          {label}
+        </Checkbox>
       </p>
     </>
   );

@@ -1,40 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { LoanSlider } from './components/LoanSlider';
 import { MonthSlider } from './components/MonthSlider';
-import { CheckboxInsurance } from './components/Checkbox';
+import { CheckboxInsurance } from './components/CheckboxInsurance';
+import { useFetchData } from './hooks/useFetchData';
 
 export const App = () => {
   const [inputValueLoan, setInputValueLoan] = useState(1000);
   const [inputValueMonth, setInputValueMonth] = useState(0);
   const [checked, setChecked] = useState(false);
-  const [data, setData] = useState('');
 
-  const MY_KEY = process.env.REACT_APP_API_KEY;
-  const baseURL = `https://api.api-ninjas.com/v1/mortgagecalculator?loan_amount=${inputValueLoan}&interest_rate=3.5&duration_years=${inputValueMonth}`;
-
-  const fetchData = () => {
-    const config = {
-      headers: {
-        'X-Api-Key': MY_KEY,
-      },
-      contentType: 'application/json',
-    };
-
-    axios
-      .get(baseURL, config)
-      .then((response) => {
-        setData(response.data.monthly_payment.mortgage);
-      })
-      .catch((err) => {
-        console.log('There is an error occured.', err);
-      });
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [inputValueLoan, inputValueMonth]);
-
+  const { data, loading } = useFetchData();
   return (
     <div>
       <div>{inputValueLoan}</div>

@@ -42,7 +42,7 @@ export const MonthSlider = ({ inputValueMonth, setInputValueMonth }) => {
           step={1}
           value={inputValueMonth}
           onChange={debouncedChangeHandler}
-          addonAfter="Roků"
+          addonAfter="Let"
         />
       </Col>
     </Row>
