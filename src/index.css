@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #3cba6d !important;
+  border-color: #3cba6d !important;
+}

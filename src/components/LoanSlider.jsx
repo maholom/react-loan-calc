@@ -30,6 +30,7 @@ export const LoanSlider = ({ inputValueLoan, setInputValueLoan }) => {
           onChange={debouncedChangeHandler}
           value={typeof inputValueLoan === 'number' ? inputValueLoan : 1000}
           step={1000}
+          trackStyle={{ backgroundColor: '#3cba6d' }}
         />
       </Col>
       <Col span={6}>
@@ -39,7 +40,7 @@ export const LoanSlider = ({ inputValueLoan, setInputValueLoan }) => {
           value={inputValueLoan}
           onChange={debouncedChangeHandler}
           step={1000}
-          addonAfter="Kč"
+          addonAfter="$"
         />
       </Col>
     </Row>

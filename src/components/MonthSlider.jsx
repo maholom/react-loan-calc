@@ -30,6 +30,7 @@ export const MonthSlider = ({ inputValueMonth, setInputValueMonth }) => {
           onChange={debouncedChangeHandler}
           value={typeof inputValueMonth === 'number' ? inputValueMonth : 1}
           step={1}
+          trackStyle={{ backgroundColor: '#3cba6d' }}
         />
       </Col>
       <Col span={6}>
