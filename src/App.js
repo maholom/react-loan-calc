@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import './index.css';
 import { LoanSlider } from './components/LoanSlider';
 import { MonthSlider } from './components/MonthSlider';
 import { CheckboxInsurance } from './components/CheckboxInsurance';
-import { Col, Row, Spin, Typography } from 'antd';
+import { Col, Row, Spin, Typography, Button } from 'antd';
 import { useAxios } from './hooks/useAxios';
+import { wrap } from 'lodash';
 
 export const App = () => {
   const [inputValueLoan, setInputValueLoan] = useState(1000);
@@ -40,8 +42,53 @@ export const App = () => {
           </Title>
           <CheckboxInsurance checked={checked} setChecked={setChecked} />
         </Col>
-        <Col sx={24} lg={4} style={{ margin: '8px' }} flex="auto">
-          {loading ? <Spin /> : <div>{checked ? data + 1000 : data}</div>}
+        <Col
+          sx={24}
+          lg={4}
+          style={{
+            margin: '8px',
+            background: '#140c53',
+            color: '#F8F8FF',
+          }}
+          flex="auto"
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'stretch',
+              flexWrap: 'wrap',
+              flexDirection: 'column',
+              alignContent: 'center',
+            }}
+          >
+            <Title
+              style={{
+                margin: '8px',
+                color: '#F8F8FF',
+                alignContent: 'center',
+              }}
+              level={5}
+            >
+              Měsíčně zaplatíte
+            </Title>
+            <Title style={{ margin: '8px', color: '#F8F8FF' }} level={1}>
+              {loading ? (
+                <Spin />
+              ) : (
+                <div>{checked ? data + 1000 + '$' : data + '$'}</div>
+              )}
+            </Title>
+            <Button
+              style={{
+                margin: '8px',
+                background: '#3cba6d',
+                color: '#F8F8FF',
+                marginTop: '32px',
+              }}
+            >
+              Pokračovat
+            </Button>
+          </div>
         </Col>
       </Row>
     </>

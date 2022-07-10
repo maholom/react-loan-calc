@@ -16,3 +16,7 @@ code {
   background-color: #3cba6d !important;
   border-color: #3cba6d !important;
 }
+
+.ant-spin-dot-item {
+  background-color: #f8f8ff !important;
+}
