@@ -5,7 +5,6 @@ import { MonthSlider } from './components/MonthSlider';
 import { CheckboxInsurance } from './components/CheckboxInsurance';
 import { Col, Row, Spin, Typography, Button } from 'antd';
 import { useAxios } from './hooks/useAxios';
-import { wrap } from 'lodash';
 
 export const App = () => {
   const [inputValueLoan, setInputValueLoan] = useState(1000);
