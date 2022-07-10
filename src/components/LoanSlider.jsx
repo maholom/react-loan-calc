@@ -23,7 +23,7 @@ export const LoanSlider = ({ inputValueLoan, setInputValueLoan }) => {
 
   return (
     <Row>
-      <Col span={12}>
+      <Col span={18}>
         <Slider
           min={1000}
           max={100000}
@@ -32,7 +32,7 @@ export const LoanSlider = ({ inputValueLoan, setInputValueLoan }) => {
           step={1000}
         />
       </Col>
-      <Col span={4}>
+      <Col span={6}>
         <InputNumber
           min={1000}
           max={100000}

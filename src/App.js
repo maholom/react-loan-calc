@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { LoanSlider } from './components/LoanSlider';
 import { MonthSlider } from './components/MonthSlider';
 import { CheckboxInsurance } from './components/CheckboxInsurance';
-import { Col, Row, Spin, Space } from 'antd';
+import { Col, Row, Spin } from 'antd';
 import { useAxios } from './hooks/useAxios';
 
 export const App = () => {
@@ -14,8 +14,8 @@ export const App = () => {
 
   return (
     <>
-      <Row gutter={16}>
-        <Col md={12} sx={12} sm={12} style={{ margin: '16px' }}>
+      <Row>
+        <Col sx={24} lg={20} style={{ margin: '8px' }} flex="auto">
           <LoanSlider
             inputValueLoan={inputValueLoan}
             setInputValueLoan={setInputValueLoan}
@@ -26,7 +26,7 @@ export const App = () => {
           />
           <CheckboxInsurance checked={checked} setChecked={setChecked} />
         </Col>
-        <Col md={4} sx={12} sm={12} style={{ margin: '16px' }}>
+        <Col sx={24} lg={4} style={{ margin: '8px' }} flex="auto">
           {loading ? <Spin /> : <div>{checked ? data + 1000 : data}</div>}
         </Col>
       </Row>

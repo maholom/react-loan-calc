@@ -23,7 +23,7 @@ export const MonthSlider = ({ inputValueMonth, setInputValueMonth }) => {
 
   return (
     <Row>
-      <Col span={12}>
+      <Col span={18}>
         <Slider
           min={1}
           max={30}
@@ -32,14 +32,14 @@ export const MonthSlider = ({ inputValueMonth, setInputValueMonth }) => {
           step={1}
         />
       </Col>
-      <Col span={4}>
+      <Col span={6}>
         <InputNumber
           min={1}
           max={36}
           step={1}
           value={inputValueMonth}
           onChange={debouncedChangeHandler}
-          addonAfter="Počet roků"
+          addonAfter="Počet let"
         />
       </Col>
     </Row>
